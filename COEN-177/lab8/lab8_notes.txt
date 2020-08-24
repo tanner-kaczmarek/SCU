@@ -1,0 +1,7 @@
+Name: Tanner Kaczmarek
+Date: June 1st 2020
+Title: Lab Assignment 8 - Notes
+Description: Notes on the implementation of lab8
+
+COMPILE: compile using make which calls the make file.  Then you can call it by 
+cat accesses.txt | ./lru 100

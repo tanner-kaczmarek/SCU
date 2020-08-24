@@ -1,0 +1,24 @@
+#Tanner Kaczmarek
+#Date: 4/7/20
+#Title: Lab 2 Notes
+#Notes for lab 2 concerning multiprocessing and multithreading
+
+Step 2:
+- No editing was needed for lab2_1-1 to compile withtout errors.
+
+Step 3:
+- There was a Segmentation fault(core dump) --- when I looked this up it means that we are going some place where there is not allocated memory. 
+
+Step 4: 
+- when typed in for 3000 the program outputted "Parent Process x" & "Child Process x" for x being all the numbers counting up from 0-99. 
+- the parent process and the child process did not always swap each other evenly. Sometimes there would be two child processes in a row for example listed.  This is because the scheduler is essentially random so sometimes it does not follow the perfect order it should.  
+- execute 3000 worked a lot better than execute 500.  In execute 500 there were a lot more issues with the scheduler than execute 3000. 
+
+Step 5: 
+- This proved pretty conceptually challenging to print everything in order but after trial and failure I was able to get.  Very important note, if it's a parent it will when forked return the child's pid and if it is the child it will return 0.  This was extremely useful as each parent should have two children from it. A wait was also needed just as in steps 1-4.
+
+Step 6:  
+- Everything worked as expectedly.  I did need to switch how I compiled it.  I needed gcc __ -o execute -pthread for it to work correctly.  I had to create another process and the processes interweave with each other but not perfectly like in step 4. The threads still face the same issue with the random scheduler.   Also usleep is needed when sleeping with threads. If I did not have that, it would have not worked. 
+
+Step 7: 
+- All I had to do was copy and paste inside. No unseen errors. 

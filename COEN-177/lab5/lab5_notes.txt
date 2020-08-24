@@ -1,0 +1,21 @@
+
+#Name: Tanner Kaczmarek
+Date: 4/30/20
+#Title: Lab5 Notes
+#Description: Lab 5 Notes 
+
+Step 1:
+- This program builds on top of the hello threads document from last lab by putting semaphores locks around the critical section.  However because the critical section just prints and does not have any shared variables, the semaphore locks was not needed.  
+- There is additional sleep statement in critical section that makes this work program seem to work better as processes are generally printed more in order now.
+
+Step 2: 
+- This program basically does the same thing as last program but now with the use of mutex locks instead of semaphores.  For example, to enter the program we used pthread_mutex_lock() instead of sem_wait(). 
+
+Step 3: 
+- In this program we use 3 different semaphores to keep track of the producers and the consumers.  The semaphore mutex will keep control of the critical section of the producer and consumer making sure no more than one thread is using the shared data at once. 
+- The other semaphores, empty and full keep count of the number of empty and full buffers. 
+- To solve this problem I used a lot of code from other code given to the teacher in class to figure this solution out.  Was not that bad.
+
+Step 4: 
+- This solution was pretty similar to the last solution in step three but instead the empty and full semaphores were replaced by condition variables and the semaphore mutex replaced by a mutex lock
+- The biggest difference was the use of the variable count.  The conditional variables did not have the same flexibility that the semaphores had.  Instead of the semaphores knowing not to consume when empty or when full we had to use the variable count to know when the buffer was full or empty. 

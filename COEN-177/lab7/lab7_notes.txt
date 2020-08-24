@@ -1,0 +1,36 @@
+Name: Tanner Kaczmarek
+Date: 5/12/20
+Title: Lab 7 - Notes
+Description: Notes on lab 7 and my process
+
+Same steps as last week but replace main.c with proc.c : 
+
+1. We need to set up VMware so do the following commands once after each other: "setup "vmware" , "minix-get-image" , "vmware &"
+2. Open up your minix 3 machine through vmware
+3. In your Virtual machine now type in root for your login.  After this you should reset your password so type passwd and set it.
+4. Now we are going to open up ftp so your minix virtual machine can talk to your local host. Do that with "tcpd ftp /usr/bin/in.ftpd &"
+5. Type ifconfig to find address of VM
+6. Open up terminal on local host and connect to VM using ftp <ip address>
+7. CD into whatever location you want to pull from on the VM. You can change location on host machine using lcd.
+8. For this assignment we cd into /usr/src/kernel
+9. We then pulled main.c from VM to current location on host machine using "get proc.c"
+10. We can now edit the proc.c however we like.
+11. Now its time to put main.c with edits back onto our VM.  We did that by cd into /usr/src/kernel again and use command "put proc.c"
+12. Now that edited proc.c is on VM minix we need to cd /usr/src on Minix and then type "make world" and then type "reboot" after make world finishes. 
+
+
+
+Editing the following for loop in proc.c and function pick_proc(void):
+
+  for (q=0; q < NR_SCHED_QUEUES; q++) {	
+	int randN = rand()%100;
+        if(randN <= 20){
+		q = randN%NR_SCHED_QUEUES;
+	}
+	else {
+		q = 0;
+	}
+
+
+The following edits for are a process scheduling algorithm for the Minix.  It does this by setting randN to a number from 0-99.  If it is less or or equal to 20 then the queue will be set to that random number.  If the queue is greater than 20 then it will restart and go through the queue again beginning at queue of 0.  So it works 20% of the time. Therefore each process will take more time as the queue will restart at 0 80% of the time. For example reboot took much longer than before as well as basic commands like ls.  Ls would usually take milliseconds but when ran with changes to the minix scheduling it took just over two seconds. 
+

@@ -1,0 +1,25 @@
+#Name: Tanner Kaczmarek
+#Date: 3/31/20
+#Title: Lab 1 Notes
+#Description: This is a text file for lab 1 with the output of the programs and observations.
+
+
+Step 1:
+- In the beginning we print out basic things about the environment we are working such as the current directory path by the following command:  echo "PWD="$PWD. .
+- It prints out that that there are 3 users logged in.  After doing a quick check with a who command I find out that I must be sharing servers with other people in my lab.
+- I also make a folder remotely for this lab by using a mkdir command.
+- It does not continue on although because at the instatement there is salagtash instead of tkaczmar.
+
+Step 2: 
+- I change $user = "salagtash" to $user = "tkaczmar" and if statement proceeds.
+-Anything that is not a No exactly acts as a Yes as the while statement just makes sure its not a "No".
+-Made a copy using the cp function and then listed the file to copy and destination.
+-All variables have a $ in front of it when used during a print statement or other arithmetic statement. 
+
+Step 3:
+OBSERVATIONS
+-Had to create a variable named pi and set equal to 3.14
+-The same way we did math in step 2 does not work in step 3 as expr cannot handle decimals.
+- Instead used an echo expression that prints the result to the area.
+- We also "|" to bc to do floating point arithmetic. The bc function can do any type of arithmetic even outside a file in linux, so we pipe or transfer the output to the bc calculator which then we print the result to area.
+

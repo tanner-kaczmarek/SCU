@@ -1,0 +1,22 @@
+
+#Name: Tanner Kaczmarek
+#Date: 4/21/20
+#Title: Lab 4 - Notes
+#Description: Notes on the the three steps for lab 4. 
+
+Part 1: 
+- Prints 20 versions of "Hello from thread X with thread ID Y" 
+- Prints 20 versions of "Thread x returned" then prints "Main thread done"
+- You do not get the same result every time you run this program. The threads do not print  "Hello from thread X" starting at 0 and going up one number at a time.  Instead it prints things in following order as an example: 3,6,4,3,4,7,8,9,10, etc.  While the order seems to go up over time not every number jumps up a thread the next time and some numbers appear more than once. This is because CPU does not share time on it completely fairly and instead of the value of i being passed the address of i is passed instead and that changes over time.
+- having the variable be static means the value of i is global in scope meaning it is shared between processes. 
+- The variable i is passed as a reference not a value. To fix the issue we should pass it as a value and instead of &i we should use (void *) i.  If that would happen then we would have it i on the thread stack. 
+- the function *go takes in a (void *arg) that takes in a variable that is per thread only.  
+
+Part 2: 
+- Program only prints the 20 versions of "Hello from the X with thread ID Y" and "main thread done" statement
+- the big difference than before is the "main thread done" statement does not always come at the end anymore.  This is because we took away the pthread_join command that has the main thread wait for all its children to finish before it terminates. Therefore occasionally the last command prints twice when main thread completes before it does. 
+
+Part 3:
+- I changed up the rand function given in class for it outputs smaller numbers.  So now it does numbers 0 -25. 
+- I also printed the matrices in matrix form by printing out row by row
+- The individual thread does one row at a time

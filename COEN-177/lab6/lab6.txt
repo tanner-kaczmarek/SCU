@@ -1,0 +1,17 @@
+#Name: Tanner Kaczmarek
+#Date: 5/5/20
+#Title: Lab 6- Notes
+Description: Notes and step by step plan on how to set up a minix machine and communicate with it
+
+1. We need to set up VMware so do the following commands once after each other: "setup "vmware" , "minix-get-image" , "vmware &"
+2. Open up your minix 3 machine through vmware
+3. In your Virtual machine now type in root for your login.  After this you should reset your password so type passwd and set it.
+4. Now we are going to open up ftp so your minix virtual machine can talk to your local host. Do that with "tcpd ftp /usr/bin/in.ftpd &"
+5. Type ifconfig to find address of VM
+6. Open up terminal on local host and connect to VM using ftp <ip address>
+7. CD into whatever location you want to pull from on the VM. You can change location on host machine using lcd.
+8. For this assignment we cd into /usr/src/kernel
+9. We then pulled main.c from VM to current location on host machine using "get main.c"
+10. We can now edit the main.c however we like.
+11. Now its time to put main.c with edits back onto our VM.  We did that by cd into /usr/src/kernel again and use command "put main.c"
+12. Now that edited main.c is on VM minix we need to type "make world" and then type "reboot" after make world finishes. 
