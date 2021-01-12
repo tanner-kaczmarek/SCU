@@ -1,0 +1,11 @@
+/*
+#Name: Tanner Kaczmarek
+#Date: 10/15/2020
+#Title: Lab 4 
+#Description: Notes for Lab 4
+*/
+
+
+Step 1: The client sent a request to the server to send the data from the source file.  The client then received the information from the source file.  To make this scalable for more clients, the server had a pthread for every connection with a client file. 
+
+Step 2: For P2P UDP connection I made two different P2P files.  Each of the files has the ability to be a server or the ability to be a client. The P2P file is much more scalable than the client-server method.  The client-server minimum distribution time is N/10 with N being the number of clients.  With P2P method the minimum distribution time is N/(N+10) which is much less time than the client-server method as you get more users/clients.  

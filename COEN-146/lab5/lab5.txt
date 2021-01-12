@@ -1,0 +1,9 @@
+/*
+# Name: Tanner Kaczmarek
+# Date: 10/08/20
+# Title: Lab5 Notes
+# Description: Notes on Lab5
+*/
+
+Note: In this lab I implemented client-server file transfer that takes in account for packet corruption of its sequence number of its checksum. 
+- The chance of a bad checksum is 25% and the chance of a bad sequence is 25%

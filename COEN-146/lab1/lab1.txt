@@ -1,0 +1,19 @@
+# Name: Tanner Kaczmarek
+# Date: 9/24/20
+# Title: Lab1 - Notes
+# Description: Notes, observations on lab1
+
+Step 3: 
+./Lab1_s1 caused a segmentation fault: 11
+
+Step 4: 
+The delay depends on the command line argument gave -
+./Lab1_s1 500 creates parent and child process with a delay of 500 microseconds
+./Lab1_s1 3000 creates parent and child process with a delay of 3000 microcseconds
+./Lab1_s1 5000 creates parent and child process with a delay of 5000 microcseconds
+
+Step5: 
+./Lab1_s5 caused a segmentation fault: 11
+./Lab1_s5 500 creates parent and child process with a delay of 500 microseconds
+./Lab1_s5 3000 creates parent and child process with a delay of 3000 microcseconds
+./Lab1_s5 5000 creates parent and child process with a delay of 5000 microcseconds

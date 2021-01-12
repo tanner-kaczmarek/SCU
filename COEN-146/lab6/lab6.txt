@@ -1,0 +1,19 @@
+/*
+# Name: Tanner Kaczmarek
+# Date: 10/08/20
+# Title: Lab6 Notes
+# Description: Notes on Lab6
+*/
+
+Notes: In this lab I implemented client-server file transfer that takes in account for packet corruption of its sequence number or its checksum. It also takes in account for packets that may be lost with a timer. 
+- The chance of a bad checksum is 25% and the chance of a bad sequence is 25%.  The chance of a bad timer is 10%. 
+
+        //[Q1] Briefly explain what is "AF_INET" used for.
+        //[Q2] Briefly explain what is "SOCK_DGRAM" used for.
+        //[Q3] Briefly explain what is "htons" used for.
+        //[Q4] Briefly explain why bind is required on the server and not on the client.
+
+1. AF_INET is a socket family that designates that the socket can communicate with other IPv4 addresses. 
+2. SOCK_DGRAM is the UDP datagram-based protocol.  With this protocol you can send one datagram and get one reply before the connection will terminate. 
+3. htons is used for translating a 16-bit number in host byte order to a 16 bit number in network byte order.  I used htons function in my code to convert the port number to network byte order. 
+4. The bind function assigns the local port number with a socket.  Doing this allows the client to connect to this particular server by specifying the same IP address and port. 

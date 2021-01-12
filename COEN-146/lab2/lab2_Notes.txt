@@ -1,0 +1,118 @@
+Name: Tanner Kaczmarek
+Date: 10/1/20 
+Title: Lab 2 - Part 1
+Description:  Notes and Observations for lab 2
+
+STEP 2: 
+
+a. Netstat: This command prints the network connections for TCP, the routing tables, and the state of all active sockets. 
+
+b. Ifconfig: Ifconfig shows the configuration/states of your network interface. Ifconfig also can set the IP address and enable/disable the interface
+
+c. Hostname: Hostname dispalsy the DNS hostname of the current system and can let you set hostname for the system
+
+d. Ping: This command sends an ECHO_REQUEST to a network host with the ICMP protocol and receives an ECHO_RESPONSE from host to find how reachable a host is.  
+
+e. Traceroute: Traceroute is a command that displays possible routes for packets using the IP protocol TTL (time to live). 
+
+f. Telnet: Telnet allows a user to make a connection between a host and a port. 
+
+g. Host/Dig: Both commands peform DNS lookups.  Dig can also give additonal information about the lookup. 
+
+h. Route: This command is used to view or manipulate the network routing tables. 
+
+i. Arp: This command displays and modifies entril in the ARP (Address Resolution Protocol) cache/table. 
+
+STEP 3: 
+
+Three Hosts: 
+US - wsj.com
+Asia - alibaba.com
+Europe (Germany) - en.avm.de 
+
+
+ping -s 32 wsj.com
+11 packets transmitted, 11 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 16.669/23.716/30.420/4.552 ms
+
+ping -s 1048 wsj.com
+11 packets transmitted, 11 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 16.844/29.878/35.996/5.402 ms
+
+ping -s 32 alibaba.com
+5 packets transmitted, 15 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 18.513/23.977/32.142/3.557 ms
+
+ping -s 1048 alibaba.com
+11 packets transmitted, 11 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 18.636/28.240/47.650/7.554 ms
+
+ping -s 32 en.avm.de
+11 packets transmitted, 11 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 172.202/191.155/264.559/25.641 ms
+
+ping -s 1048 en.avm.de
+11 packets transmitted, 11 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 174.323/194.677/356.589/51.285 ms
+
+Observations: 
+ - Both North America and Asia have similar packet losses for 32 and 1048, however pinging the German website had a lot longer RTT.  
+ - All three regions had a jump when looking at the average RTT between the 32 bit packets compared to the 1048 bit packages (e.g. USA went from 24 to 29 ms)
+        
+STEP 5: 
+
+A:
+telnet gaia.cs.umass.edu 80
+Trying 128.119.245.12...
+Connected to gaia.cs.umass.edu.
+Note: It will open the connection to the host
+
+B:
+GET /kurose_ross/interactive/index.php HTTP/1.1 
+Host: gaia.cs.umass.edu
+Note: It will get the HTML code of the website
+
+C:
+File Retrieved: index.php
+Client Version: 1.1
+Formatting of Texts and Images: CSS/HTML
+
+STEP 6: 
+
+telnet wsj.com 80
+Trying 13.35.121.16...
+Connected to wsj.com.
+Escape character is '^]'.
+Connection closed by foreign host.
+
+telnet wsj.com 3389
+Trying 13.35.121.16...
+telnet: connect to address 13.35.121.16: Connection timed out
+Trying 13.35.121.13...
+telnet: connect to address 13.35.121.13: Connection timed out
+Trying 13.35.121.97...
+
+telnet alibaba.com 80
+Trying 198.11.132.198...
+Connected to alibaba.com.
+Escape character is '^]'.
+Connection closed by foreign host.
+
+telnet alibaba.com 3389
+Trying 198.11.132.198...
+telnet: connect to address 198.11.132.198: Connection timed out
+Trying 205.204.101.142...
+telnet: connect to address 205.204.101.142: Connection timed out
+
+telnet en.avm.de 80
+Trying 212.42.244.122...
+Connected to en.avm.de.
+Escape character is '^]'.
+Connection closed by foreign host.
+
+telnet en.avm.de 3389
+Trying 212.42.244.122...
+telnet: connect to address 212.42.244.122: Connection timed out
+Trying 2001:bf0:244:244::122...
+
+Notes/Observations: All them were able to connect through port 80 but had trouble connecting through port 3389.  I am not sure but port 3389 may have too much traffic and therefore could not connect through that port. 
